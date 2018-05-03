@@ -61,19 +61,17 @@ class Graph(object):
 
     """ # Running out of time ...
     def remove_edge(self, start_node, end_node):
-        start = self.graph[start_node]
-        end = self.graph[end_node]
+        start = self.nodes[start_node]
+        end = self.nodes[end_node]
 
         # Remove directed edge from start node to end node
-        self.graph[start_node].remove(end_node)
+        self.nodes[start_node].remove(end_node)
     """
 
     def get_nodes(self):
         # Return a list of nodes
         nodes = list(self.nodes.values())
         return nodes
-
-
 
 
 

@@ -2,7 +2,7 @@
 Simple Python implementation of PageRank algorithm.
 """
 
-def pagerank(graph, n_iterations=1):
+def pagerank(graph):
     """
     graph: graph object as input
     n_iterations: optional, number of iterations before returning rankings.
@@ -20,28 +20,26 @@ def pagerank(graph, n_iterations=1):
     init_val = 1.0/n
     ranks = dict(zip(graph.get_nodes(), [init_val] * n))
 
-    # Iterate through nodes and calculate ranking
-    for i in range(n_iterations): # TODO: set delta/epsilon for converging
-        new_ranks = ranks
+    new_ranks = ranks
 
-        # Calculate new rank for each node
-        for node, prev_rank in ranks.items():
-            rank_sum = 0.0
+    # Calculate new rank for each node
+    for node, prev_rank in ranks.items():
+        rank_sum = 0.0
 
-            # Iterate through incoming nodes
-            for incoming_node in node.inbound:
-                numerator = ranks[incoming_node]
-                denominator = len(incoming_node.outbound)
-                transfer_amount = numerator / denominator
+        # Iterate through incoming nodes
+        for incoming_node in node.inbound:
+            numerator = ranks[incoming_node]
+            denominator = len(incoming_node.outbound)
+            transfer_amount = numerator / denominator
 
-                # Transfer rank score
-                new_ranks[incoming_node] = new_ranks[incoming_node] - transfer_amount
-                rank_sum = rank_sum + transfer_amount
+            # Transfer rank score
+            new_ranks[incoming_node] = new_ranks[incoming_node] - transfer_amount
+            rank_sum = rank_sum + transfer_amount
 
-            new_ranks[node] = ranks[node] + rank_sum
+        new_ranks[node] = ranks[node] + rank_sum
 
-        # Set ranks to the new ranks calculated in this iteration
-        ranks = new_ranks
+    # Set ranks to the new ranks calculated in this iteration
+    ranks = new_ranks
 
     return ranks
 
