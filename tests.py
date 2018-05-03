@@ -1,5 +1,5 @@
 """
-Unit tests for graph implementation and for PageRank algorithm.
+Unit tests for graph implementation.
 Use with nosetests.
 """
 
@@ -57,5 +57,3 @@ def test_graph_add_edge():
     assert_equals(node_a.outbound, [node_b])
     assert_equals(node_b.inbound, [node_a])
 
-
-### Test PageRank
