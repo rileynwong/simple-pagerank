@@ -8,9 +8,6 @@ def pagerank(graph):
 
     Returns a dictionary where the keys are the node names and the values are
     the calculated pagerank score for that given node.
-
-    Note: An improvement on this algorithm could use DFS to locate source nodes
-    and obtain a more efficient ordering for traversing the graph.
     """
 
     # Initialize values for all nodes s.t. that add up to one
