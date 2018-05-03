@@ -4,9 +4,7 @@ Simple Python implementation of PageRank algorithm.
 
 def pagerank(graph):
     """
-    graph: graph object as input
-    n_iterations: optional, number of iterations before returning rankings.
-        Default set to 1.
+    Graph object as input
 
     Returns a dictionary where the keys are the node names and the values are
     the calculated pagerank score for that given node.
