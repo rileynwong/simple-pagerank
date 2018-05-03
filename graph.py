@@ -3,6 +3,8 @@ Simple Python implementation of a directed graph.
 """
 class Node(object):
     def __init__(self, inbound=None, outbound=None):
+        self.name = ''
+
         if inbound:
             self.inbound = inbound
         else:
@@ -36,6 +38,7 @@ class Graph(object):
 
     def add_node(self, node_name, node):
         # Add node to graph
+        node.name = node_name
         self.nodes[node_name] = node
 
     def add_edge(self, start_node, end_node):
@@ -67,7 +70,7 @@ class Graph(object):
 
     def get_nodes(self):
         # Return a list of nodes
-        nodes = list(self.graph.values())
+        nodes = list(self.nodes.values())
         return nodes
 
 
